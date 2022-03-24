@@ -68,6 +68,7 @@ AptosFullNode FirstTransaction Klavuzu
 Fullnode'u çalıştırıyorsanız, bu adıma hazırsınız : python3'ü bu kodla kurun
 ```
 apt install python3-pip
+pip install pynacl
 ```
 
 First_transaction.py'yi İndirin
