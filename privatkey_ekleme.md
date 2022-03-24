@@ -17,7 +17,7 @@ PRIVATE_KEY=$(cat $HOME/aptos/identity/private-key.txt)
 docker stop aptos_tools
 ```
 
-Aptos Klasörüne Girme
+Aptos klasörüne girip private_key ve peer id leri node dosyasina yazdiriyoruz
 
 ```
 cd $HOME/aptos
