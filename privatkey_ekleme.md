@@ -19,36 +19,61 @@ docker stop aptos_tools
 
 Aptos Klasörüne Girme
 
+```
 cd $HOME/aptos
 sed -i '/      discovery_method: "onchain"$/a\
       identity:\
           type: "from_config"\
           key: "'$PRIVATE_KEY'"\
           peer_id: "'$PEER_ID'"' public_full_node.yaml
+```          
+          
 Private Key'i Görüntüleme
 
+```
 cat $HOME/aptos/identity/private-key.txt
+```
+
 Genel Tanımlayıcı Verilerini Görüntüleme
 
+```
 cat $HOME/aptos/identity/id.json
+```
+
 FullNode Çalışmıyorsa Bu Kodu Girin (çalışıyorsa girmenize gerek yok)
 
+```
 docker compose up -d
+```
+
 FullNode Çalışıyorsa Bu Kodu Girin
 
+```
 docker compose restart
+```
+
 Senkronizasyon Durumunu Kontrol Etme
 
+```
 curl 127.0.0.1:9101/metrics 2> /dev/null | grep aptos_state_sync_version | grep type
+```
+
 Logları Görüntüleme
 
+```
 docker logs -f aptos-fullnode-1 --tail 5000
+```
+
 AptosFullNode FirstTransaction Klavuzu
 Fullnode'u çalıştırıyorsanız, bu adıma hazırsınız : python3'ü bu kodla kurun
-
+```
 apt install python3-pip
+```
+
 First_transaction.py'yi İndirin
 
+```
 wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/developer-docs-site/static/examples/python/first_transaction.py
 python3 first_transaction.py
+```
 İşlemlerin tamamlanması ve işlemin bitmesi için birkaç saniye bekleyin.
