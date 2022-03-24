@@ -1,10 +1,13 @@
 Aptos FullNode Kurmuş Fakat Private Key Oluşturmamışlar İçin Devam Kodları
 Identity Klasörü Oluşturma (private-key için)
 
+```
 mkdir $HOME/aptos/identity
+```
 
 private-key.txt oluşturma
 
+```
 docker run --rm --name aptos_tools -d -i aptoslab/tools:devnet
 docker exec -it aptos_tools aptos-operational-tool generate-key --encoding hex --key-type x25519 --key-file $HOME/private-key.txt
 docker exec -it aptos_tools cat $HOME/private-key.txt > $HOME/aptos/identity/private-key.txt
@@ -12,6 +15,8 @@ docker exec -it aptos_tools aptos-operational-tool extract-peer-from-file --enco
 PEER_ID=$(cat $HOME/aptos/identity/id.json | jq -r '.Result | keys[]')
 PRIVATE_KEY=$(cat $HOME/aptos/identity/private-key.txt)
 docker stop aptos_tools
+```
+
 Aptos Klasörüne Girme
 
 cd $HOME/aptos
